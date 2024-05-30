@@ -62,16 +62,16 @@ const CertificateGenerator = () => {
   ];
   
   const vtTableData = [
-    ['BETWEEN PHASES', 'VA @0.8PF (lag)', 'PRIMARY CURRENT %', 'RATIO ERROR IN %', 'PHASE ERROR IN MIN.'],
+    ['PHASES', 'VA @0.8PF (lag)', 'PRIMARY CURRENT %', 'RATIO ERROR IN %', 'PHASE ERROR IN MIN.'],
     ['A-B', '10 VA', '80%', '0.222', '1.44'],
     ['A-B', '10 VA', '100%', '0.225', '2.21'],
     ['A-B', '10 VA', '120%', '0.249', '4.01'],
-    ['A-C', '10 VA', '80%', '0.211', '2.09'],
-    ['A-C', '10 VA', '100%', '0.216', '2.91'],
-    ['A-C', '10 VA', '120%', '0.243', '5.46'],
     ['B-C', '10 VA', '80%', '0.214', '1.45'],
     ['B-C', '10 VA', '100%', '0.216', '1.91'],
-    ['B-C', '10 VA', '120%', '0.241', '3.81']
+    ['B-C', '10 VA', '120%', '0.241', '3.81'],
+    ['A-C', '10 VA', '80%', '0.211', '2.09'],
+    ['A-C', '10 VA', '100%', '0.216', '2.91'],
+    ['A-C', '10 VA', '120%', '0.243', '5.46']
   ];
   
 
@@ -111,32 +111,32 @@ const CertificateGenerator = () => {
       case '1':
         return [
           ['TEST CONDUCTED', 'SPECIFIED VALUE', 'OBSERVED VALUE', 'REMARKS'],
-          ['Verification of Terminal Markings and Polarity', 'Conforming to IS 3156 (Part 1)', 'Conforming', 'OK'],
+          ['Verification of Terminal Markings and Polarity', 'Conforming to IS 3156 (Part 1 and 3)', 'Conforming', 'OK'],
           ['Power Frequency Dry One Minute Withstand Test', '28 kV', 'Withstood', 'OK'],
           ['Power Frequency Wet One Minute Withstand Test', '23 kV', 'Withstood', 'OK'],
           ['Induced Overvoltage Withstand Test', '24 kV', 'Withstood', 'OK'],
           ['Partial Discharge Test', '≤ 10 pC at 1.9 U0', '≤ 10 pC', 'OK'],
-          ['Accuracy Test', 'As per IS 3156', 'As per IS 3156', 'OK'],
+          ['Accuracy Test', 'Specified', 'As per IS 3156', 'OK'],
         ];
       case '2':
         return [
           ['TEST CONDUCTED', 'SPECIFIED VALUE', 'OBSERVED VALUE', 'REMARKS'],
-          ['Verification of Terminal Markings and Polarity', 'Conforming to IS 2705 (Part 1)', 'Conforming', 'OK'],
+          ['Verification of Terminal Markings and Polarity', 'Conforming to IS 16227 (Part 1)', 'Conforming', 'OK'],
           ['Power Frequency Dry One Minute Withstand Test', '28 kV', 'Withstood', 'OK'],
           ['Power Frequency Wet One Minute Withstand Test', '23 kV', 'Withstood', 'OK'],
           ['Induced Overvoltage Withstand Test', '24 kV', 'Withstood', 'OK'],
           ['Partial Discharge Test', '≤ 10 pC at 1.9 U0', '≤ 10 pC', 'OK'],
-          ['Accuracy Test', 'As per IS 2705', 'As per IS 2705', 'OK'],
+          ['Accuracy Test', 'Specified', 'As per IS 2705', 'OK'],
         ];
-      case '3':
-        return [
-          ['TEST CONDUCTED', 'SPECIFIED VALUE', 'OBSERVED VALUE', 'REMARKS'],
-          ['Verification of Terminal Markings and Polarity', 'Conforming to IS 16227 (Part 1)', 'Conforming', 'OK'],
+        case '3':
+          return [
+            ['TEST CONDUCTED', 'SPECIFIED VALUE', 'OBSERVED VALUE', 'REMARKS'],
+            ['Verification of Terminal Markings and Polarity', 'Conforming to IS 2705 (Part 1 and 3)', 'Conforming', 'OK'],
           ['Power Frequency Dry One Minute Withstand Test', '3 kV', 'Withstood', 'OK'],
           ['Power Frequency Wet One Minute Withstand Test', '2.5 kV', 'Withstood', 'OK'],
           ['Induced Overvoltage Withstand Test', '2.4 kV', 'Withstood', 'OK'],
           ['Partial Discharge Test', '≤ 10 pC at 1.9 U0', '≤ 10 pC', 'OK'],
-          ['Accuracy Test', 'As per IS 16227', 'As per IS 16227', 'OK'],
+          ['Accuracy Test', 'Specified', 'As per IS 16227', 'OK'],
         ];
       case '4':
         return [
@@ -146,7 +146,7 @@ const CertificateGenerator = () => {
           ['Power Frequency Wet One Minute Withstand Test', '23 kV', 'Withstood', 'OK'],
           ['Induced Overvoltage Withstand Test', '24 kV', 'Withstood', 'OK'],
           ['Partial Discharge Test', '≤ 10 pC at 1.9 U0', '≤ 10 pC', 'OK'],
-          ['Accuracy Test', 'As per IS 2705/IS 3156', 'As per IS 2705/IS 3156', 'OK'],
+          ['Accuracy Test', 'Specified', 'As per IS 2705/IS 3156', 'OK'],
         ];
       default:
         return [];
@@ -177,8 +177,9 @@ const CertificateGenerator = () => {
                 [{ text: '8. ACCURACY CLASS', style: 'tableHeader' }, { text: accuracyClass, style: 'tableCell' }],
                 [{ text: '9. I L', style: 'tableHeader' }, { text: equipmentTested === '3' ? '.66kV' : '28 KV / 75 KVp', style: 'tableCell' }],
                 [{ text: '10. FREQUENCY', style: 'tableHeader' }, { text: '50 HZ', style: 'tableCell' }],
-                [{ text: '11. S. T. C', style: 'tableHeader' }, { text: '13.1 KV for 1 Sec.', style: 'tableCell' }],
-                [{ text: '12. VOLTAGE FACTOR', style: 'tableHeader' }, { text: '1.2 TIMES CONT. & 1.5 FOR 30 SEC.', style: 'tableCell' }],
+                [{ text: '11. S. T. C', style: 'tableHeader' }, { text: equipmentTested === '1' ? '': '13.1 KV for 1 Sec.' , style: 'tableCell' }],
+                [{ text: '12. VOLTAGE FACTOR', style: 'tableHeader' }, { text: equipmentTested === '1' ? '1.2 TIMES CONT. & 1.5 FOR 30 SEC.' : '', style: 'tableCell' }],
+
               ] : [
                 [{ text: '4. RATIO', style: 'tableHeader' }, { text: transformerRatio, style: 'tableCell' }],
                 [{ text: '5. RATED VOLTAGE', style: 'tableHeader' }, { text: '11 KV', style: 'tableCell' }],
@@ -187,8 +188,10 @@ const CertificateGenerator = () => {
                 [{ text: '8. ACCURACY CLASS', style: 'tableHeader' }, { text: accuracyClass, style: 'tableCell' }],
                 [{ text: '9. I L', style: 'tableHeader' }, { text: '28 KV / 75 KVp', style: 'tableCell' }],
                 [{ text: '10. FREQUENCY', style: 'tableHeader' }, { text: '50 HZ', style: 'tableCell' }],
-                [{ text: '11. S. T. C', style: 'tableHeader' }, { text: '13.1 KV for 1 Sec.', style: 'tableCell' }],
-                [{ text: '12. VOLTAGE FACTOR', style: 'tableHeader' }, { text: '1.2 TIMES CONT. & 1.5 FOR 30 SEC.', style: 'tableCell' }],
+                [{ text: '11. S. T. C', style: 'tableHeader' }, { text: equipmentTested === '1' ? '': '13.1 KV for 1 Sec.' , style: 'tableCell' }],
+
+                [{ text: '12. VOLTAGE FACTOR', style: 'tableHeader' }, { text: equipmentTested === '1' ? '1.2 TIMES CONT. & 1.5 FOR 30 SEC.' : '', style: 'tableCell' }]
+
               ]),
               ...tableContent.map(([header, value]) => [
                 { text: header, style: 'tableHeader' },
