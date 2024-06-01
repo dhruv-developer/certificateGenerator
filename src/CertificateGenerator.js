@@ -36,51 +36,53 @@ const CertificateGenerator = () => {
   const accuracyClassOptions = ["0.2s", "0.2", "0.5", "0.5s", "1"];
   const ltctTableData = [
     ['SR NO.', 'CURRENT RATIO', 'BURDEN', 'TYPE OF ERROR', 'PERCENTAGE OF RATED PRIMARY CURRENT'],
-    ['SE-LT-1833-A', '800/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.121, 100%: -0.139, 20%: -0.396, 5%: -0.896'],
-    ['SE-LT-1833-B', '800/5A', '5 VA', 'PHASE ERROR IN MIN.', '120%: -2.98, 100%: -1.08, 20%: 9.56, 5%: 19.1'],
-    ['SE-LT-1833-C', '800/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.174, 100%: -0.222, 20%: -0.541, 5%: -0.996'],
-    ['SE-LT-1833-D', '800/5A', '5 VA', 'PHASE ERROR IN MIN.', '120%: -2.29, 100%: -1.44, 20%: 11.9, 5%: 25.1'],
+    [formData.serialNumber+'-A', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.121, 100%: -0.139, 20%: -0.396, 5%: -0.896'],
+    [formData.serialNumber+'-B', formData.currentRatio, formData.burden, 'PHASE ERROR IN MIN.', '120%: -2.98, 100%: -1.08, 20%: 9.56, 5%: 19.1'],
+    [formData.serialNumber+'-C', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.174, 100%: -0.222, 20%: -0.541, 5%: -0.996'],
+    [formData.serialNumber+'-D', formData.currentRatio, formData.burden, 'PHASE ERROR IN MIN.', '120%: -2.29, 100%: -1.44, 20%: 11.9, 5%: 25.1'],
     // Add other rows similarly...
   ];
 
   const ctTableData = [
     ['SR NO.', 'CURRENT RATIO', 'BURDEN', 'TYPE OF ERROR', 'PERCENTAGE OF RATED PRIMARY CURRENT'],
-    ['SE-9103-A', '50/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.070, 100%: -0.072, 20%: -0.131, 5%: -0.228, 1%: -0.264'],
-    ['SE-9103-B', '50/5A', '5 VA', 'PHASE ERROR IN MIN.', '120%: 0.26, 100%: 0.10, 20%: 0.50, 5%: 3.84, 1%: 3.84'],
-    ['SE-9103-C', '50/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.044, 100%: -0.074, 20%: -0.101, 5%: -0.101, 1%: -0.114'],
+    [formData.serialNumber+'-A', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.070, 100%: -0.072, 20%: -0.131, 5%: -0.228, 1%: -0.264'],
+    [formData.serialNumber+'-B', formData.currentRatio, formData.burden, 'PHASE ERROR IN MIN.', '120%: 0.26, 100%: 0.10, 20%: 0.50, 5%: 3.84, 1%: 3.84'],
+    [formData.serialNumber+'-C', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.044, 100%: -0.074, 20%: -0.101, 5%: -0.101, 1%: -0.114'],
     // Add other rows similarly...
   ];
 
   const ctptTableData = [
     ['SR NO.', 'CURRENT RATIO', 'BURDEN', 'TYPE OF ERROR', 'PERCENTAGE OF RATED PRIMARY CURRENT'],
-    ['SE-9103-A', '50/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.036, 100%: -0.039, 20%: -0.091, 5%: -0.114, 1%: -0.096'],
-    ['SE-9103-A', '50/5A', '5 VA', 'PHASE ERROR IN MIN.', '120%: 0.44, 100%: 1.44, 20%: 2.08, 5%: 6.11, 1%: 9.31'],
-    ['SE-9103-B', '50/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.063, 100%: -0.061, 20%: -0.116, 5%: -0.148, 1%: -0.142'],
-    ['SE-9103-B', '50/5A', '5 VA', 'PHASE ERROR IN MIN.', '120%: 0.21, 100%: 0.99, 20%: 2.58, 5%: 7.16, 1%: 12.8'],
-    ['SE-9103-C', '50/5A', '5 VA', 'CURRENT ERROR IN %', '120%: -0.055, 100%: -0.061, 20%: -0.130, 5%: -0.221, 1%: -0.254'],
-    ['SE-9103-C', '50/5A', '5 VA', 'PHASE ERROR IN MIN.', '120%: 0.24, 100%: 0.06, 20%: 1.32, 5%: 5.64, 1%: 16.4']
+    [formData.serialNumber+'-A', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.036, 100%: -0.039, 20%: -0.091, 5%: -0.114, 1%: -0.096'],
+    [formData.serialNumber+'-A', formData.currentRatio, formData.burden, 'PHASE ERROR IN MIN.', '120%: 0.44, 100%: 1.44, 20%: 2.08, 5%: 6.11, 1%: 9.31'],
+    [formData.serialNumber+'-B', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.063, 100%: -0.061, 20%: -0.116, 5%: -0.148, 1%: -0.142'],
+    [formData.serialNumber+'-B', formData.currentRatio, formData.burden, 'PHASE ERROR IN MIN.', '120%: 0.21, 100%: 0.99, 20%: 2.58, 5%: 7.16, 1%: 12.8'],
+    [formData.serialNumber+'-C', formData.currentRatio, formData.burden, 'CURRENT ERROR IN %', '120%: -0.055, 100%: -0.061, 20%: -0.130, 5%: -0.221, 1%: -0.254'],
+    [formData.serialNumber+'-C', formData.currentRatio, formData.burden, 'PHASE ERROR IN MIN.', '120%: 0.24, 100%: 0.06, 20%: 1.32, 5%: 5.64, 1%: 16.4']
   ];
   
   const vtTableData = [
     ['PHASES', 'VA @0.8PF (lag)', 'PRIMARY CURRENT %', 'RATIO ERROR IN %', 'PHASE ERROR IN MIN.'],
-    ['A-B', '10 VA', '80%', '0.222', '1.44'],
-    ['A-B', '10 VA', '100%', '0.225', '2.21'],
-    ['A-B', '10 VA', '120%', '0.249', '4.01'],
-    ['B-C', '10 VA', '80%', '0.214', '1.45'],
-    ['B-C', '10 VA', '100%', '0.216', '1.91'],
-    ['B-C', '10 VA', '120%', '0.241', '3.81'],
-    ['A-C', '10 VA', '80%', '0.211', '2.09'],
-    ['A-C', '10 VA', '100%', '0.216', '2.91'],
-    ['A-C', '10 VA', '120%', '0.243', '5.46']
+    ['A-B', formData.burden, '80%', '0.222', '1.44'],
+    ['A-B', formData.burden, '100%', '0.225', '2.21'],
+    ['A-B', formData.burden, '120%', '0.249', '4.01'],
+    ['B-C', formData.burden, '80%', '0.214', '1.45'],
+    ['B-C', formData.burden, '100%', '0.216', '1.91'],
+    ['B-C', formData.burden, '120%', '0.241', '3.81'],
+    ['A-C', formData.burden, '80%', '0.211', '2.09'],
+    ['A-C', formData.burden, '100%', '0.216', '2.91'],
+    ['A-C', formData.burden, '120%', '0.243', '5.46']
   ];
   
 
   const ptTableData = [
     ['SR NO.', 'BETWEEN PHASES', 'VA @0.8PF (lag)', '% OF RATED PRIMARY VOLTAGE'],
-    ['SE-5304', 'A-B', '10 VA', '80%: -0.018, 100%: -0.176, 120%: -0.266'],
-    ['SE-5304', 'A-B', '10 VA', 'PHASE ANGLE ERROR-MINIMUM: 80%: 3.68, 100%: 5.53, 120%: 10.2'],
-    ['SE-5304', 'A-C', '10 VA', '80%: -0.064, 100%: -0.118, 120%: -0.153'],
-    ['SE-5304', 'A-C', '10 VA', 'PHASE ANGLE ERROR-MINIMUM: 80%: 4.65, 100%: 7.94, 120%: 12.1'],
+    [formData.serialNumber+'', 'A-B', formData.burden, '80%: -0.018, 100%: -0.176, 120%: -0.266'],
+    [formData.serialNumber+'', 'A-B', formData.burden, 'PHASE ANGLE ERROR-MINIMUM: 80%: 3.68, 100%: 5.53, 120%: 10.2'],
+    [formData.serialNumber+'', 'B-C', formData.burden, '80%: -0.018, 100%: -0.176, 120%: -0.266'],
+    [formData.serialNumber+'', 'B-C', formData.burden, 'PHASE ANGLE ERROR-MINIMUM: 80%: 3.68, 100%: 5.53, 120%: 10.2'],
+    [formData.serialNumber+'', 'A-C', formData.burden, '80%: -0.064, 100%: -0.118, 120%: -0.153'],
+    [formData.serialNumber+'', 'A-C', formData.burden, 'PHASE ANGLE ERROR-MINIMUM: 80%: 4.65, 100%: 7.94, 120%: 12.1'],
     // Add other rows similarly...
   ];
 
@@ -277,42 +279,46 @@ const CertificateGenerator = () => {
         Works (Routine) Test Certificate Generator
       </Typography>
       <Box component="form" sx={{ display: 'flex', flexDirection: 'column', gap: 3 }}>
-        <FormControl fullWidth>
-          <InputLabel>Equipment Tested</InputLabel>
-          <Select name="equipmentTested" value={formData.equipmentTested} onChange={handleChange}>
-            {equipmentOptions.map((option) => (
-              <MenuItem key={option.value} value={option.value}>
-                {option.label}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <TextField name="customerName" label="Customer Name" fullWidth value={formData.customerName} onChange={handleChange} />
-        <TextField name="transformerRatio" label="Transformer Ratio" fullWidth value={formData.transformerRatio} onChange={handleChange} />
-        <FormControl fullWidth>
-          <InputLabel>Burden</InputLabel>
-          <Select name="burden" value={formData.burden} onChange={handleChange}>
-            {burdenOptions.map((option) => (
-              <MenuItem key={option} value={option}>
-                {option}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <FormControl fullWidth>
-          <InputLabel>Accuracy Class</InputLabel>
-          <Select name="accuracyClass" value={formData.accuracyClass} onChange={handleChange}>
-            {accuracyClassOptions.map((option) => (
-              <MenuItem key={option} value={option}>
-                 {option}
-              </MenuItem>
-            ))}
-          </Select>
-        </FormControl>
-        <Button variant="contained" color="primary" onClick={generatePDF}>
-          Generate PDF
-        </Button>
-      </Box>
+  <FormControl fullWidth>
+    <InputLabel>Equipment Tested</InputLabel>
+    <Select name="equipmentTested" value={formData.equipmentTested} onChange={handleChange}>
+      {equipmentOptions.map((option) => (
+        <MenuItem key={option.value} value={option.value}>
+          {option.label}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+  <TextField name="customerName" label="Customer Name" fullWidth value={formData.customerName} onChange={handleChange} />
+  <TextField name="transformerRatio" label="Transformer Ratio" fullWidth value={formData.transformerRatio} onChange={handleChange} />
+  <FormControl fullWidth>
+    <InputLabel>Burden</InputLabel>
+    <Select name="burden" value={formData.burden} onChange={handleChange}>
+      {burdenOptions.map((option) => (
+        <MenuItem key={option} value={option}>
+          {option}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+  <TextField name="serialNumber" label="Serial Number" fullWidth value={formData.serialNumber} onChange={handleChange} />
+  <TextField name="currentRatio" label="Current Ratio" fullWidth value={formData.currentRatio} onChange={handleChange} />
+  <FormControl fullWidth>
+    <InputLabel>Accuracy Class</InputLabel>
+    <Select name="accuracyClass" value={formData.accuracyClass} onChange={handleChange}>
+      {accuracyClassOptions.map((option) => (
+        <MenuItem key={option} value={option}>
+           {option}
+        </MenuItem>
+      ))}
+    </Select>
+  </FormControl>
+  <Button variant="contained" color="primary" onClick={generatePDF}>
+    Generate PDF
+  </Button>
+</Box>
+
+
       {/* LTCT Table */}
       {formData.equipmentTested === '3' && (
         <Box sx={{ mt: 4 }}>
